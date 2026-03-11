@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Signal the Brotherhood";
+}
+
+<div class="container py-5">
+    <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+
+        <h2 style="font-family: 'Orbitron'; color: #8e0000; letter-spacing: 3px;">SIGNAL THE COMMANDER</h2>
+        <div class="card bg-dark text-white mt-4 border-danger border-2 shadow-lg" style="border-radius: 0;">
+            <div class="card-body py-5">
+                <p class="fs-4">📞 <strong>Phone:</strong> +91 8349775235</p>
+                <p class="fs-4">📧 <strong>Email:</strong> rajsahuxyz@gmail.com</p>
+                <hr class="bg-danger mx-auto" style="width: 50%;">
+                <p class="small text-muted">Direct communication channel is open 24/7.</p>
+            </div>
+        </div>
+
+        <div class="mt-5 p-5" style="background: linear-gradient(45deg, #0a0a0a, #1a1a1a); border: 1px dashed #444; position: relative;">
+            <h3 style="font-family: 'Orbitron'; color: #b1b1b1;">NOT A MEMBER YET?</h3>
+            <p class="text-muted mb-4">"Work in the dark to serve the light." Register your identity to unlock the full arsenal of the Ninja Warriors.</p>
+
+            <a asp-controller="Home" asp-action="ClientRegister"
+               class="btn btn-ninja-logout px-5 py-3 fs-5"
+               style="text-transform: uppercase; font-family: 'Orbitron'; letter-spacing: 2px;">
+                Join the Brotherhood
+            </a>
+        </div>
+
+    </div>
+</div>

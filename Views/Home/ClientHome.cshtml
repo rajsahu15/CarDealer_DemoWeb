@@ -1,0 +1,145 @@
+
+@{
+    ViewData["Title"] = "Command Center";
+}
+
+<style>
+    .admin-container {
+        padding-top: 50px;
+        background: #000;
+        min-height: 90vh;
+    }
+
+    .command-header {
+        border-left: 5px solid #8e0000;
+        padding-left: 20px;
+        margin-bottom: 40px;
+    }
+
+        .command-header h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            letter-spacing: 5px;
+            margin: 0;
+        }
+
+    /* Stat Cards */
+    .stat-card {
+        background: #0f0f0f;
+        border: 1px solid #222;
+        padding: 25px;
+        transition: 0.3s;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .stat-card:hover {
+            border-color: #8e0000;
+            box-shadow: 0 0 20px rgba(142, 0, 0, 0.2);
+        }
+
+        .stat-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: #8e0000;
+            margin-bottom: 15px;
+        }
+
+    .stat-value {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    /* Recent Activity Table */
+    .terminal-table {
+        background: #0a0a0a;
+        border: 1px solid #333;
+        width: 100%;
+        color: #b1b1b1;
+        margin-top: 30px;
+    }
+
+        .terminal-table th {
+            background: #1a1a1a;
+            color: #8e0000;
+            font-family: 'Orbitron', sans-serif;
+            padding: 15px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .terminal-table td {
+            padding: 15px;
+            border-bottom: 1px solid #222;
+        }
+
+    .badge-status {
+        background: #8e0000;
+        color: #fff;
+        padding: 4px 10px;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+    }
+</style>
+
+<div class="admin-container container">
+    <div class="command-header">
+        <h1>COMMAND CENTER</h1>
+        <p class="text-muted text-uppercase small">Welcome back, Commander Raj. System is online.</p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="stat-card">
+                <h3>TOTAL BROTHERHOOD</h3>
+                <div class="stat-value">1,248</div>
+                <small class="text-muted">Registered Clients</small>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card">
+                <h3>THE ARSENAL</h3>
+                <div class="stat-value">12</div>
+                <small class="text-muted">Active Car Editions</small>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card">
+                <h3>PENDING RECRUITS</h3>
+                <div class="stat-value">05</div>
+                <small class="text-muted">New Registrations</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <h3 style="font-family: 'Orbitron'; color: #b1b1b1; font-size: 1.2rem;">RECENT INTELLIGENCE</h3>
+        <div class="table-responsive">
+            <table class="terminal-table">
+                <thead>
+                    <tr>
+                        <th>Identity</th>
+                        <th>Status</th>
+                        <th>Assigned Unit</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John_Wick_99</td>
+                        <td><span class="badge-status">Verified</span></td>
+                        <td>Black Defender</td>
+                        <td><a href="#" class="text-danger text-decoration-none small">View Profile</a></td>
+                    </tr>
+                    <tr>
+                        <td>Ghost_Operator</td>
+                        <td><span class="badge-status">Verified</span></td>
+                        <td>Endeavour Night Ops</td>
+                        <td><a href="#" class="text-danger text-decoration-none small">View Profile</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>Y

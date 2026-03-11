@@ -1,0 +1,141 @@
+﻿@model WebApplication1.Models.Entities.Clients
+
+<style>
+    /* Theme Variables */
+    :root {
+        --assassin-red: #8e0000;
+        --blade-silver: #b1b1b1;
+    }
+
+    .register-card {
+        background: rgba(10, 10, 10, 0.95);
+        border: 1px solid #333;
+        border-right: 4px solid var(--assassin-red);
+        clip-path: polygon(0 0, 100% 0, 100% 95%, 95% 100%, 0 100%);
+        padding: 40px;
+        color: #fff;
+    }
+
+    .form-control-ninja {
+        background: #1a1a1a;
+        border: 1px solid #444;
+        color: white !important;
+        border-radius: 0;
+        transition: 0.3s;
+    }
+
+        .form-control-ninja:focus {
+            background: #222;
+            border-color: var(--assassin-red);
+            box-shadow: 0 0 10px rgba(142, 0, 0, 0.3);
+            outline: none;
+        }
+
+    .form-label {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+        color: var(--blade-silver);
+    }
+
+    /* Popup Styling */
+    .terminal-toast {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 320px;
+        background: rgba(10, 10, 10, 0.98);
+        color: white;
+        padding: 15px;
+        z-index: 9999;
+        font-family: 'Orbitron', sans-serif;
+        border: 1px solid #333;
+        box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        animation: slideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .err-border {
+        border-left: 4px solid #ff4d4d;
+    }
+
+    .succ-border {
+        border-left: 4px solid #00ff88;
+    }
+
+    .toast-header {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.6rem;
+        color: var(--assassin-red);
+        margin-bottom: 8px;
+        border-bottom: 1px solid #222;
+        padding-bottom: 5px;
+    }
+
+    @@keyframes slideIn {
+        from {
+            transform: translateX(120%);
+        }
+
+        to {
+            transform: translateX(0);
+        }
+    }
+</style>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="register-card shadow-lg">
+                <h2 class="text-center mb-4" style="font-family: 'Orbitron'; color: var(--assassin-red); letter-spacing: 2px;">CLIENT REGISTRATION</h2>
+
+                <form asp-controller="Register" asp-action="RegisterClient" method="post">
+                    <div class="mb-3">
+                        <label asp-for="ClientName" class="form-label">FULL NAME</label>
+                        <input asp-for="ClientName" class="form-control form-control-ninja" placeholder="OPERATIVE NAME" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="ClientEmail" class="form-label">EMAIL ADDRESS</label>
+                        <input asp-for="ClientEmail" class="form-control form-control-ninja" placeholder="ID@BROTHERHOOD.COM" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="PhoneNumber" class="form-label">PHONE LINK</label>
+                        <input asp-for="PhoneNumber" class="form-control form-control-ninja" placeholder="+91..." required />
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="Password" class="form-label">ENCRYPTION KEY</label>
+                        <input asp-for="Password" type="password" class="form-control form-control-ninja" required />
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-danger py-2" style="background: var(--assassin-red); font-family: 'Orbitron'; border-radius:0;">INITIALIZE ACCOUNT</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if ( TempData["error"]  != null || TempData["success"] != null)
+{
+<div id="statusPopup" class="terminal-toast @(TempData["error"]  != null ? "err-border" : "succ-border")">
+    <div class="toast-header">
+        <span>> SYSTEM_STATUS_MSG</span>
+        <span style="cursor:pointer" onclick="this.parentElement.parentElement.remove()">[X]</span>
+    </div>
+    <div style="font-size: 0.8rem; letter-spacing: 1px;">
+        @if (TempData["error"]  != null) { <span>STATUS: FAILED<br />@TempData["error"] </span> }
+        @if (TempData["success"] != null) { <span>STATUS: SUCCESS<br />@TempData["success"]</span> }
+    </div>
+</div>
+
+<script>
+        setTimeout(() => {
+            const el = document.getElementById('statusPopup');
+            if(el) el.style.display = 'none';
+        }, 5000);
+</script>
+}
